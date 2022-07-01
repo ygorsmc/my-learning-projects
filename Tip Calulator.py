@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[6]:
-
-
 # CALCULATOR TO SPLIT THE BILL
 
 print("Welcome to the tip calculator. Let's split the bill fairly!")
