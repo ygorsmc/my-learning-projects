@@ -83,28 +83,4 @@ else:
     print("YOU LOSE")
 
 
-# In[99]:
-
-
-print(computer_choice)
-print(computer_list[0])
-print(player_choice)
-
-
-# In[90]:
-
-
-computer_list[0] == hand_list[2]
-
-
-# In[87]:
-
-
-print(hand_list[2])
-
-
-# In[ ]:
-
-
-
 
