@@ -1,6 +1,6 @@
 # CAESAR CIPHER!
 
-alphabet = 'abcdefghijklmnopqrstuvwxyz'
+characters = 'abcdefghijklmnopqrstuvwxyz .,:!?0123456789'
 
 def caesar():
     
@@ -23,9 +23,9 @@ def caesar():
     
     if action == 'encode':
         for letter in message:
-            new_message += alphabet[(alphabet.find(letter) + shift_number)%26]
+            new_message += characters[(characters.find(letter) + shift_number)%len(characters)]
         print(f'Encrypted message: {new_message}')
     else:
         for letter in message:
-                new_message += alphabet[(alphabet.find(letter) - shift_number)%26]
+                new_message += characters[(characters.find(letter) - shift_number)%len(characters)]
         print(f'Encrypted message: {new_message}')
