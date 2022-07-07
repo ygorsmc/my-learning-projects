@@ -28,7 +28,11 @@ def caesar():
         
         if shift_number.isdigit():
             shift_number = int(shift_number)
-            is_number = True
+                  
+            if shift_number % len(characters) == 0:
+                print("With this number your message will not change. Please choose another number.")
+            else:
+                is_number = True
         else:
             print("Plase type only numbers.")
             
