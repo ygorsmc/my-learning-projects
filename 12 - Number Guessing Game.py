@@ -32,33 +32,36 @@ else:
 def make_a_guess():
     while True:
 
-        guess_function = input("Make a guess:\n")
+        guess = input("Make a guess:\n")
 
-        if guess_function.isdigit():
-            guess_function = int(guess_function)
+        if guess.isdigit():
+            guess = int(guess)
+            break
         else:
             print("Please. Type only numbers.")
-    return guess_function
-    
-guess = make_a_guess()
 
-while count_of_attempts < attempts:
+    return guess
+    
+
+while count_of_attempts <= attempts:
+
+    guess = make_a_guess()
+
     if secret_number == guess:
         print("YOU GUESSED RIGHT!!")
         break
     elif secret_number + 10 <= guess:
-        print("You are too high.")       
+        print("You are too high.")   
     elif secret_number - 10 >= guess:
         print("You are too low.")
     elif secret_number < guess:
         print("You are a little above")
     elif secret_number > guess:
         print("You are a little below")
-         
+
+    print(f"You have {attempts - count_of_attempts} attempts ramaining to guess the number.")   
     count_of_attempts += 1
-    guess = make_a_guess()
     
-if count_of_attempts == attempts:
+if count_of_attempts > attempts:
     print("YOU LOSE...")
-    
-print(f"The number I was thinking is {secret_number}!")
+    print(f"The number I was thinking is {secret_number}!")
