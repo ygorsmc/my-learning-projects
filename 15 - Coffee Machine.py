@@ -1,7 +1,6 @@
-# COFFE MACHINE (COIN OPERATED)
+# COFFEE MACHINE (COIN OPERATED)
 
-
-coffee_options = {"espresso": {"ingredients": {"water": 50, "coffee": 18, "milk": 0}, "price": 1.50}, "latte": {"ingredients": {"water": 200, "coffee": 24, "milk": 150}, "price": 2.50}, "cappuccino": {"ingredients": {"water": 250, "coffee": 24, "milk": 100}, "price": 3.00}}
+menu = {"espresso": {"ingredients": {"water": 50, "coffee": 18, "milk": 0}, "price": 1.50}, "latte": {"ingredients": {"water": 200, "coffee": 24, "milk": 150}, "price": 2.50}, "cappuccino": {"ingredients": {"water": 250, "coffee": 24, "milk": 100}, "price": 3.00}}
 
 def show_resources():
     print(f"Water: {water_storaged}ml\nMilk: {milk_storaged}ml\nCoffe: {coffee_storaged}g\nMoney: $ {money_storaged}")
@@ -9,7 +8,7 @@ def show_resources():
 def add_coin():
     
     while True:
-        coin = input("Plase insert coins. (5/10/25/50/100)\n")
+        coin = input("Plase insert a coin. (5/10/25/50/100)\n")
         if coin.isdigit():
             coin = int(coin)/100
             break
@@ -63,14 +62,14 @@ while machine_is_on:
     show_resources()
     
     while True: 
-        action = input("What you would like? (espresso/latte/cappuccino)\n").lower()
+        choice = input("What you would like? (espresso/latte/cappuccino)\n").lower()
               
-        if action == "espresso" or action == "latte" or action == "cappuccino":
+        if choice == "espresso" or choice == "latte" or choice == "cappuccino":
             break
         else:
             print("Please, verify your entry data.")
 
-    def make_coffee(price = coffee_options[action]["price"], used_water = coffee_options[action]["ingredients"]["water"], used_coffee = coffee_options[action]["ingredients"]["coffee"], used_milk = coffee_options[action]["ingredients"]["milk"]):
+    def make_coffee(price = menu[choice]["price"], used_water = menu[choice]["ingredients"]["water"], used_coffee = menu[choice]["ingredients"]["coffee"], used_milk = menu[choice]["ingredients"]["milk"]):
     
         resources_is_ok = {"water": False, "coffee": False, "money": False, "milk": False}
         current_money = money_storaged
@@ -78,7 +77,7 @@ while machine_is_on:
         current_coffee = coffee_storaged
         current_milk = milk_storaged
         
-        print(f"The {action}'s price is $ {coffee_options[action]['price']}")
+        print(f"The {choice}'s price is $ {menu[choice]['price']}")
         refund_customer = False
 
         while list(resources_is_ok.values()).count(True) < len(resources_is_ok) and refund_customer == False: # Checking if all the resources will satisfy the operation
